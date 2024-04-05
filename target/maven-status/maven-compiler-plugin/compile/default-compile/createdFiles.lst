@@ -5,10 +5,12 @@ GUI/QLViPham$2.class
 GUI/QLThietBi$5.class
 DAL/ThanhVienDAL.class
 GUI/QLThietBi$1.class
+DAL/ThongTinSuDungDAL.class
 GUI/QLThanhVien$8.class
 GUI/QLThanhVien$10.class
 GUI/QLThanhVien$5.class
 GUI/MainFrame$1.class
+BLL/ThongTinSuDungBLL.class
 GUI/MainFrame.class
 GUI/QLThanhVien$4.class
 GUI/MainFrame$4.class
@@ -33,6 +35,7 @@ GUI/QLThietBi$6.class
 DAL/ThietBiDAL.class
 GUI/QLThietBi$3.class
 DAL/Entities/ThietBi.class
+DAL/Entities/ThongTinSuDung.class
 GUI/MainFrame$9.class
 GUI/QLThietBi$4.class
 GUI/QLViPham$5.class
@@ -45,7 +48,6 @@ GUI/AddThanhVien.class
 GUI/MuonThietBi.class
 BLL/ThanhVienBLL.class
 GUI/MainFrame$5.class
-test.class
 GUI/QLViPham.class
 DAL/XuLyDAL.class
 GUI/QLThietBi$7.class

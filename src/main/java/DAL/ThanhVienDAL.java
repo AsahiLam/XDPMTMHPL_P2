@@ -17,13 +17,17 @@ public class ThanhVienDAL {
 
     Session session;
 
-    public ThanhVien getThanhVien(int MaTV) {
+    public ThanhVien getThanhVien(String MaTV) {
         session = HibernateUtils.getSessionFactory().openSession();
         ThanhVien obj = null;
         try {
-            session.beginTransaction();
-            obj = session.get(ThanhVien.class, MaTV);
-            session.getTransaction().commit();
+            try{
+                int maTV = Integer.parseInt(MaTV);
+                session.beginTransaction();
+                obj = session.get(ThanhVien.class, maTV);
+            }catch(NumberFormatException e){
+                
+            }        
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
@@ -72,5 +76,4 @@ public class ThanhVienDAL {
         }
         return ls;
     }
-
 }

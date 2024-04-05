@@ -17,8 +17,8 @@ public class ThanhVienBLL {
     public ThanhVienBLL(){
         thanhVienDAL = new ThanhVienDAL();
     }
-    public ThanhVien getThanhVien(){
-        return thanhVienDAL.getThanhVien(1120150184);
+    public ThanhVien getThanhVien(String MaTV){
+        return thanhVienDAL.getThanhVien(MaTV);
     }
     
     public List<ThanhVien> getListThanhVien(){

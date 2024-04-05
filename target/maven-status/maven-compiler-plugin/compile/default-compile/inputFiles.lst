@@ -1,13 +1,15 @@
-/Users/lamquoc/NetBeansProjects/Project_2/src/main/java/test.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/GUI/MainFrame.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/BLL/ThanhVienBLL.java
+/Users/lamquoc/NetBeansProjects/Project_2/src/main/java/DAL/ThongTinSuDungDAL.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/GUI/AddThanhVien.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/BLL/ThietBiBLL.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/DAL/Entities/ThietBi.java
+/Users/lamquoc/NetBeansProjects/Project_2/src/main/java/DAL/Entities/ThongTinSuDung.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/DAL/HibernateUtils.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/GUI/QLViPham.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/BLL/XuLyBLL.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/DAL/Entities/ThanhVien.java
+/Users/lamquoc/NetBeansProjects/Project_2/src/main/java/BLL/ThongTinSuDungBLL.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/GUI/QLThietBi.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/GUI/MuonThietBi.java
 /Users/lamquoc/NetBeansProjects/Project_2/src/main/java/GUI/ThongKe.java

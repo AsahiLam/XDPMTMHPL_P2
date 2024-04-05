@@ -30,8 +30,9 @@ import javax.swing.table.DefaultTableModel;
  * @author lamquoc
  */
 public class QLThanhVien extends javax.swing.JPanel {
-    
+
     private ThanhVienBLL thanhVienBLL = new ThanhVienBLL();
+
     /**
      * Creates new form QLThanhVien
      */
@@ -47,13 +48,13 @@ public class QLThanhVien extends javax.swing.JPanel {
             }
         });
         loadData(thanhVienBLL.getListThanhVien());
-        
+
         jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent event) {
                 if (!event.getValueIsAdjusting()) {
                     if (jTable1.getSelectedRow() != -1) {
-                        getDataFromTable();                       
+                        getDataFromTable();
                     }
                 }
             }
@@ -394,19 +395,24 @@ public class QLThanhVien extends javax.swing.JPanel {
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            jLabel9.setText(jTextField1.getText());
+            ThanhVien obj = thanhVienBLL.getThanhVien(jTextField1.getText());
+            if (obj != null) {
+                jTextField2.setText(obj.getHoTen() + "");
+                jTextField3.setText(obj.getKhoa() + "");
+                jTextField4.setText(obj.getNganh() + "");
+                jTextField5.setText(obj.getSDT() + "");
+                jTextField6.setText(obj.getPassword() + "");
+                jTextField7.setText(obj.getEmail() + "");
+                jLabel9.setText(obj.getMaTV() + "");
+            } else {
+                jLabel9.setText("");
+            }
+
         }
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jTextField5.setText("");
-        jTextField6.setText("");
-        jTextField7.setText("");
-        jLabel9.setText("");
+        clearField();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jTextField8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyPressed
@@ -415,36 +421,61 @@ public class QLThanhVien extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jTextField8KeyPressed
 
+    private void clearField() {
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jLabel9.setText("");
+    }
+
     private void updateButtonState() {
-        if (jLabel9.getText().isEmpty()) {
-            Online_add_btn4.setEnabled(false);
-            Online_add_btn5.setEnabled(false);
-        } else {
+//        if (jLabel9.getText().isEmpty()) {
+//            Online_add_btn4.setEnabled(false);
+//            Online_add_btn5.setEnabled(false);
+//        } else {
+//            ThanhVien obj = thanhVienBLL.getThanhVien(jTextField1.getText());
+//            if (obj != null) {
+//                Online_add_btn4.setEnabled(true);
+//                Online_add_btn5.setEnabled(true);
+//            }else{
+//                Online_add_btn4.setEnabled(false);
+//                Online_add_btn5.setEnabled(false);
+//            }
+//        }
+        ThanhVien obj = thanhVienBLL.getThanhVien(jTextField1.getText());
+        if (obj != null) {
             Online_add_btn4.setEnabled(true);
             Online_add_btn5.setEnabled(true);
+        } else {
+            Online_add_btn4.setEnabled(false);
+            Online_add_btn5.setEnabled(false);
         }
     }
-    
-    private void loadData(List<ThanhVien> list){
+
+    private void loadData(List<ThanhVien> list) {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-        for(ThanhVien tv : list){
-            Object[] data = {tv.getMaTV(),tv.getHoTen(),tv.getKhoa(),tv.getNganh(),tv.getSDT(),tv.getPassword(),tv.getEmail()};
+        for (ThanhVien tv : list) {
+            Object[] data = {tv.getMaTV(), tv.getHoTen(), tv.getKhoa(), tv.getNganh(), tv.getSDT(), tv.getPassword(), tv.getEmail()};
             model.addRow(data);
         }
     }
-    
-    private void getDataFromTable(){
+
+    private void getDataFromTable() {
         int selectedRow = jTable1.getSelectedRow();
-        
-        if(selectedRow != -1){
-            jTextField1.setText(jTable1.getValueAt(selectedRow, 0)+"");
-            jTextField2.setText(jTable1.getValueAt(selectedRow, 1)+"");
-            jTextField3.setText(jTable1.getValueAt(selectedRow, 2)+"");
-            jTextField4.setText(jTable1.getValueAt(selectedRow, 3)+"");
-            jTextField5.setText(jTable1.getValueAt(selectedRow, 4)+"");
-            jTextField6.setText(jTable1.getValueAt(selectedRow, 5)+"");
-            jTextField7.setText(jTable1.getValueAt(selectedRow, 6)+"");
+
+        if (selectedRow != -1) {
+            jTextField1.setText(jTable1.getValueAt(selectedRow, 0) + "");
+            jTextField2.setText(jTable1.getValueAt(selectedRow, 1) + "");
+            jTextField3.setText(jTable1.getValueAt(selectedRow, 2) + "");
+            jTextField4.setText(jTable1.getValueAt(selectedRow, 3) + "");
+            jTextField5.setText(jTable1.getValueAt(selectedRow, 4) + "");
+            jTextField6.setText(jTable1.getValueAt(selectedRow, 5) + "");
+            jTextField7.setText(jTable1.getValueAt(selectedRow, 6) + "");
         }
     }
 

@@ -26,6 +26,8 @@
          <mapping class="DAL.ThietBiDAL" />
          <mapping class="DAL.Entities.XuLy" /> 
          <mapping class="DAL.XuLyDAL" />
+         <mapping class="DAL.Entities.ThongTinSuDung" /> 
+         <mapping class="DAL.ThongTinSuDungDAL" />
     </session-factory>
 </hibernate-configuration>
 
