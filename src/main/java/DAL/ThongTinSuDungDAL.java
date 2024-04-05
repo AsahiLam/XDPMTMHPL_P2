@@ -4,8 +4,7 @@
  */
 package DAL;
 
-import DAL.Entities.ThanhVien;
-import DAL.Entities.XuLy;
+import DAL.Entities.ThongTinSuDung;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -15,20 +14,16 @@ import org.hibernate.query.Query;
  *
  * @author lamquoc
  */
-public class XuLyDAL {
+public class ThongTinSuDungDAL {
 
-    private Session session;
+    Session session;
 
-    public XuLyDAL() {
-
-    }
-
-    public XuLy getXuLy(int MaXL) {
+    public ThongTinSuDung getThongTinSuDung(int MaTT) {
         session = HibernateUtils.getSessionFactory().openSession();
-        XuLy obj = null;
+        ThongTinSuDung obj = null;
         try {
             session.beginTransaction();
-            obj = session.get(XuLy.class, MaXL);
+            obj = session.get(ThongTinSuDung.class, MaTT);
             session.getTransaction().commit();
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
@@ -41,12 +36,14 @@ public class XuLyDAL {
         return obj;
     }
 
-    public List<XuLy> getListXuLy() {
+    public List<ThongTinSuDung> getThongTinSuDungByThanhVien(int MaTV) {
         session = HibernateUtils.getSessionFactory().openSession();
-        List<XuLy> ls = null;
+        List<ThongTinSuDung> ls = null;
         try {
             session.beginTransaction();
-            ls = session.createQuery("FROM XuLy", XuLy.class).list();
+            Query<ThongTinSuDung> query = session.createQuery("FROM ThietBi WHERE CONCAT('',MaTV) LIKE :MaTV", ThongTinSuDung.class);
+            query.setParameter("MaTV", MaTV);
+            ls = query.list();
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
@@ -57,23 +54,15 @@ public class XuLyDAL {
         }
         return ls;
     }
-
-    public List<XuLy> getListThanhVienWithInfo(String info) {
+    
+    public List<ThongTinSuDung> getThongTinSuDungByThietBi(int MaTB) {
         session = HibernateUtils.getSessionFactory().openSession();
-        List<XuLy> ls = null;
+        List<ThongTinSuDung> ls = null;
         try {
             session.beginTransaction();
-            if (info.equalsIgnoreCase("chưa xử lý")) {
-                Query<XuLy> query = session.createQuery("SELECT x FROM XuLy x JOIN x.ThanhVien t WHERE CONCAT('', x.MaXL) LIKE :info OR CONCAT('', t.MaTV) LIKE :info OR t.HoTen LIKE :info OR x.HinhThucXL LIKE :info OR x.SoTien LIKE :info OR x.NgayXL LIKE :info OR x.TrangThaiXL = :status", XuLy.class);
-                query.setParameter("info", "%" + info + "%");
-                query.setParameter("status", 0);
-                ls = query.list();
-            } else if (info.equalsIgnoreCase("đã xử lý")) {
-                Query<XuLy> query = session.createQuery("SELECT x FROM XuLy x JOIN x.ThanhVien t WHERE CONCAT('', x.MaXL) LIKE :info OR CONCAT('', t.MaTV) LIKE :info OR t.HoTen LIKE :info OR x.HinhThucXL LIKE :info OR x.SoTien LIKE :info OR x.NgayXL LIKE :info OR x.TrangThaiXL = :status", XuLy.class);
-                query.setParameter("info", "%" + info + "%");
-                query.setParameter("status", 1);
-                ls = query.list();
-            }
+            Query<ThongTinSuDung> query = session.createQuery("FROM ThietBi WHERE CONCAT('',MaTB) LIKE :MaTB", ThongTinSuDung.class);
+            query.setParameter("MaTB", MaTB);
+            ls = query.list();
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
@@ -84,4 +73,5 @@ public class XuLyDAL {
         }
         return ls;
     }
+    
 }
