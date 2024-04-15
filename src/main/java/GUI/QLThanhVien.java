@@ -7,6 +7,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Insets;
+import java.awt.Window;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
@@ -14,6 +15,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -93,7 +96,6 @@ public class QLThanhVien extends javax.swing.JPanel {
         Online_add_btn2 = new javax.swing.JButton();
         Online_add_btn3 = new javax.swing.JButton();
         Online_add_btn4 = new javax.swing.JButton();
-        Online_add_btn5 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jTextField8 = new javax.swing.JTextField();
@@ -228,12 +230,12 @@ public class QLThanhVien extends javax.swing.JPanel {
         Online_add_btn4.setBackground(new java.awt.Color(100, 113, 135));
         Online_add_btn4.setFont(new java.awt.Font("Menlo", 1, 14)); // NOI18N
         Online_add_btn4.setForeground(new java.awt.Color(227, 228, 230));
-        Online_add_btn4.setText("Mượn thiết bị");
-
-        Online_add_btn5.setBackground(new java.awt.Color(100, 113, 135));
-        Online_add_btn5.setFont(new java.awt.Font("Menlo", 1, 14)); // NOI18N
-        Online_add_btn5.setForeground(new java.awt.Color(227, 228, 230));
-        Online_add_btn5.setText("Trả thiết bị");
+        Online_add_btn4.setText("Khu học tập");
+        Online_add_btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Online_add_btn4ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setEnabled(false);
         jLabel9.setVisible(false);
@@ -256,10 +258,13 @@ public class QLThanhVien extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
@@ -304,13 +309,11 @@ public class QLThanhVien extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Online_add_btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(31, 31, 31)
-                                        .addComponent(Online_add_btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(190, 190, 190))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(Online_add_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(31, 31, 31)
-                                        .addComponent(Online_add_btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(Online_add_btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -318,7 +321,7 @@ public class QLThanhVien extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(52, Short.MAX_VALUE)
+                        .addContainerGap(37, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -372,10 +375,8 @@ public class QLThanhVien extends javax.swing.JPanel {
                             .addComponent(Online_add_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Online_add_btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Online_add_btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Online_add_btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                        .addComponent(Online_add_btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -421,6 +422,13 @@ public class QLThanhVien extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jTextField8KeyPressed
 
+    private void Online_add_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Online_add_btn4ActionPerformed
+        // TODO add your handling code here:
+        KhuHocTap kht = new KhuHocTap(null, true);
+        kht.setLocationRelativeTo(null);
+        kht.setVisible(true);
+    }//GEN-LAST:event_Online_add_btn4ActionPerformed
+
     private void clearField() {
         jTextField1.setText("");
         jTextField2.setText("");
@@ -446,14 +454,6 @@ public class QLThanhVien extends javax.swing.JPanel {
 //                Online_add_btn5.setEnabled(false);
 //            }
 //        }
-        ThanhVien obj = thanhVienBLL.getThanhVien(jTextField1.getText());
-        if (obj != null) {
-            Online_add_btn4.setEnabled(true);
-            Online_add_btn5.setEnabled(true);
-        } else {
-            Online_add_btn4.setEnabled(false);
-            Online_add_btn5.setEnabled(false);
-        }
     }
 
     private void loadData(List<ThanhVien> list) {
@@ -485,7 +485,6 @@ public class QLThanhVien extends javax.swing.JPanel {
     private javax.swing.JButton Online_add_btn2;
     private javax.swing.JButton Online_add_btn3;
     private javax.swing.JButton Online_add_btn4;
-    private javax.swing.JButton Online_add_btn5;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

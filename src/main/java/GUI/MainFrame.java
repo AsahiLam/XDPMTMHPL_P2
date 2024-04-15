@@ -63,6 +63,9 @@ public class MainFrame extends javax.swing.JFrame {
         Label_TK = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        Panel_KHT = new javax.swing.JPanel();
+        Label_TK_icon1 = new javax.swing.JLabel();
+        Label_TK1 = new javax.swing.JLabel();
         CloseBtn = new javax.swing.JLabel();
         Content = new javax.swing.JPanel();
 
@@ -233,6 +236,40 @@ public class MainFrame extends javax.swing.JFrame {
         jSeparator1.setRequestFocusEnabled(false);
         jSeparator1.setVerifyInputWhenFocusTarget(false);
 
+        Panel_KHT.setBackground(new java.awt.Color(30, 40, 57));
+        Panel_KHT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_KHT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_KHTMouseClicked(evt);
+            }
+        });
+
+        Label_TK_icon1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        Label_TK_icon1.setForeground(new java.awt.Color(255, 255, 255));
+        Label_TK_icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        Label_TK1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        Label_TK1.setForeground(new java.awt.Color(255, 255, 255));
+        Label_TK1.setText("Mượn/Trả thiết bị");
+
+        javax.swing.GroupLayout Panel_KHTLayout = new javax.swing.GroupLayout(Panel_KHT);
+        Panel_KHT.setLayout(Panel_KHTLayout);
+        Panel_KHTLayout.setHorizontalGroup(
+            Panel_KHTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_KHTLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(Label_TK_icon1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(Label_TK1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        Panel_KHTLayout.setVerticalGroup(
+            Panel_KHTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Label_TK_icon1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(Panel_KHTLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(Label_TK1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout LeftMenuLayout = new javax.swing.GroupLayout(LeftMenu);
         LeftMenu.setLayout(LeftMenuLayout);
         LeftMenuLayout.setHorizontalGroup(
@@ -247,6 +284,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
             .addComponent(Panel_QLVP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Panel_KHT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         LeftMenuLayout.setVerticalGroup(
             LeftMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,6 +301,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(Panel_QLVP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(Panel_TK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(Panel_KHT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -356,6 +396,7 @@ public class MainFrame extends javax.swing.JFrame {
         Panel_QLTB.setBackground(new Color(0x1E2839));
         Panel_QLVP.setBackground(new Color(0x1E2839));
         Panel_TK.setBackground(new Color(0x647187));
+        Panel_KHT.setBackground(new Color(0x1E2839));
     }//GEN-LAST:event_Panel_TKMouseClicked
 
     private void Panel_QLTVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_QLTVMouseClicked
@@ -363,6 +404,7 @@ public class MainFrame extends javax.swing.JFrame {
         Panel_QLTB.setBackground(new Color(0x1E2839));
         Panel_QLVP.setBackground(new Color(0x1E2839));
         Panel_TK.setBackground(new Color(0x1E2839));
+        Panel_KHT.setBackground(new Color(0x1E2839));
         showFunction(1);
     }//GEN-LAST:event_Panel_QLTVMouseClicked
 
@@ -372,6 +414,7 @@ public class MainFrame extends javax.swing.JFrame {
         Panel_QLTB.setBackground(new Color(0x647187));
         Panel_QLVP.setBackground(new Color(0x1E2839));
         Panel_TK.setBackground(new Color(0x1E2839));
+        Panel_KHT.setBackground(new Color(0x1E2839));
     }//GEN-LAST:event_Panel_QLTBMouseClicked
 
     private void Panel_QLVPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_QLVPMouseClicked
@@ -380,7 +423,18 @@ public class MainFrame extends javax.swing.JFrame {
        Panel_QLTB.setBackground(new Color(0x1E2839));
        Panel_QLVP.setBackground(new Color(0x647187));
        Panel_TK.setBackground(new Color(0x1E2839));
+       Panel_KHT.setBackground(new Color(0x1E2839));
     }//GEN-LAST:event_Panel_QLVPMouseClicked
+
+    private void Panel_KHTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_KHTMouseClicked
+        // TODO add your handling code here:
+       showFunction(5);
+       Panel_QLTV.setBackground(new Color(0x1E2839));
+       Panel_QLTB.setBackground(new Color(0x1E2839));
+       Panel_QLVP.setBackground(new Color(0x1E2839));
+       Panel_TK.setBackground(new Color(0x1E2839));
+       Panel_KHT.setBackground(new Color(0x647187));
+    }//GEN-LAST:event_Panel_KHTMouseClicked
 
     public void showFunction(int x) {
         Content.removeAll();
@@ -408,6 +462,11 @@ public class MainFrame extends javax.swing.JFrame {
                 break;
             }
             case 5: {
+                MuonTraTB kht = new MuonTraTB();
+                Content.add(kht);
+                break;
+            }
+            case 6: {
                 break;
             }
         }
@@ -466,10 +525,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel Label_QLTV;
     private javax.swing.JLabel Label_QLTV_icon;
     private javax.swing.JLabel Label_TK;
+    private javax.swing.JLabel Label_TK1;
     private javax.swing.JLabel Label_TK_icon;
+    private javax.swing.JLabel Label_TK_icon1;
     private javax.swing.JLabel Label_VP;
     private javax.swing.JLabel Label_VP_icon;
     private javax.swing.JPanel LeftMenu;
+    private javax.swing.JPanel Panel_KHT;
     private javax.swing.JPanel Panel_QLTB;
     private javax.swing.JPanel Panel_QLTV;
     private javax.swing.JPanel Panel_QLVP;
