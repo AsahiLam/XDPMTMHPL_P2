@@ -57,7 +57,7 @@ public class XuLyDAL {
         }
         return ls;
     }
-
+    
     public List<XuLy> getListThanhVienWithInfo(String info) {
         session = HibernateUtils.getSessionFactory().openSession();
         List<XuLy> ls = null;
