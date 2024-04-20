@@ -27,4 +27,7 @@ public class ThietBiBLL {
     public List<ThietBi> getListThietBiWithInfo(String info){
         return thietBiDAL.getListThietBiWithInfo(info);
     }
+    public List<String> getListTenTB(){
+        return thietBiDAL.getAllDistinctTenTB();
+    }
 }

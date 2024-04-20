@@ -5,6 +5,7 @@
 package DAL;
 
 import DAL.Entities.ThietBi;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -75,6 +76,25 @@ public class ThietBiDAL {
             session.close();
         }
         return ls;
+    }
+    
+    public List<String> getAllDistinctTenTB() {
+        List<String> tenTBList = new ArrayList<>();
+        session = HibernateUtils.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            Query<String> query = session.createQuery("SELECT DISTINCT t.TenTB FROM ThietBi t", String.class);
+            tenTBList = query.list();
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null && session.getTransaction().isActive()) {
+                session.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return tenTBList;
     }
 
 }

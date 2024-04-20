@@ -73,7 +73,33 @@ public class XuLyDAL {
                 query.setParameter("info", "%" + info + "%");
                 query.setParameter("status", 1);
                 ls = query.list();
+            } else {
+                Query<XuLy> query = session.createQuery("SELECT x FROM XuLy x JOIN x.ThanhVien t WHERE CONCAT('', x.MaXL) LIKE :info OR CONCAT('', t.MaTV) LIKE :info OR t.HoTen LIKE :info OR x.HinhThucXL LIKE :info OR x.SoTien LIKE :info OR x.NgayXL LIKE :info", XuLy.class);
+                query.setParameter("info", "%" + info + "%");
+                ls = query.list();
             }
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return ls;
+    }
+
+    public List<XuLy> getListXuLyStatistic(int type) {
+        session = HibernateUtils.getSessionFactory().openSession();
+        List<XuLy> ls = null;
+        try {
+            session.beginTransaction();
+            String hql = "FROM XuLy t WHERE t.TrangThaiXL = :type";
+            Query<XuLy> query = session.createQuery(hql, XuLy.class);
+            query.setParameter("type", type);
+            ls = query.getResultList();
+            session.getTransaction().commit();
         } catch (HibernateException e) {
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();

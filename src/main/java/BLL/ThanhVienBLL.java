@@ -29,4 +29,11 @@ public class ThanhVienBLL {
         return thanhVienDAL.getListThanhVienWithInfo(info);
     }
     
+    public List<String> getAllKhoa(){
+        return thanhVienDAL.getAllKhoa();
+    }
+    
+    public List<String> getAllNganh(){
+        return thanhVienDAL.getAllNganh();
+    }
 }

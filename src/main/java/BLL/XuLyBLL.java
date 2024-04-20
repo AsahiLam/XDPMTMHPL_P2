@@ -29,4 +29,8 @@ public class XuLyBLL {
     public List<XuLy> getListXuLyWithInfo(String info){
         return xuLyDAL.getListThanhVienWithInfo(info);
     }
+    
+    public List<XuLy> getListXuLyStatistic(int type){
+        return xuLyDAL.getListXuLyStatistic(type);
+    }
 }

@@ -76,4 +76,42 @@ public class ThanhVienDAL {
         }
         return ls;
     }
+    
+    public List<String> getAllKhoa(){
+        session = HibernateUtils.getSessionFactory().openSession();
+        List<String> ls = null;
+        try{
+            session.beginTransaction();
+            Query<String> query = session.createQuery("SELECT DISTINCT t.Khoa FROM ThanhVien t", String.class);
+            ls = query.getResultList();
+            session.getTransaction().commit();
+        }catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return ls;
+    }
+    
+    public List<String> getAllNganh(){
+        session = HibernateUtils.getSessionFactory().openSession();
+        List<String> ls = null;
+        try{
+            session.beginTransaction();
+            Query<String> query = session.createQuery("SELECT DISTINCT t.Nganh FROM ThanhVien t", String.class);
+            ls = query.getResultList();
+            session.getTransaction().commit();
+        }catch (HibernateException e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return ls;
+    }
 }

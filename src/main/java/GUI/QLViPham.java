@@ -109,7 +109,6 @@ public class QLViPham extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField2.setFocusable(false);
 
         jTextField1.setForeground(Color.GRAY);
         jTextField1.setText("Nhập mã thành viên");
@@ -148,7 +147,6 @@ public class QLViPham extends javax.swing.JPanel {
         jLabel4.setText("Hình thức:");
 
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField3.setFocusable(false);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -190,13 +188,11 @@ public class QLViPham extends javax.swing.JPanel {
         });
 
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField5.setFocusable(false);
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel5.setText("Số tiền:");
 
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField6.setFocusable(false);
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel6.setText("Ngày xử lý:");
@@ -210,7 +206,6 @@ public class QLViPham extends javax.swing.JPanel {
         jLabel8.setText("Tên thành viên");
 
         jTextField7.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField7.setFocusable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
